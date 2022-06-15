@@ -33,7 +33,6 @@ def hello():
         templateDataTime = {
             'time': timeString,
             }
-        return render_template('index.html', **templateDataTime)
 
 
 @app.route("/")
