@@ -67,7 +67,7 @@ def indeqx():
 	import os
 	archivo = open("/sys/class/thermal/thermal_zone0/temp")
 	a =(archivo.read())
-	b= a[0:2]
+	b= str(a[0:2])
 	archivo = open("./archivocreado", "w")      #crea archivo
 	archivo.write(b)              #esribe el archivo
 	archivo.close()                                 #cierra el archivo
