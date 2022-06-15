@@ -8,7 +8,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 #define actuators GPIOs
 ledRed = 22
-ledYlw = 19
+ledYlw = 21
 ledGrn = 17
 #initialize GPIO status variables
 ledRedSts = 0
