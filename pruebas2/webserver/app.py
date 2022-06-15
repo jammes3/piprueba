@@ -1,12 +1,11 @@
+'''
+	Raspberry Pi GPIO Status and Control
+'''
 import RPi.GPIO as GPIO
 from flask import Flask, render_template, request, redirect, url_for
-import datetime
-
 app = Flask(__name__)
-
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
-
 #define actuators GPIOs
 ledRed = 22
 ledYlw = 19
@@ -23,21 +22,7 @@ GPIO.setup(ledGrn, GPIO.OUT)
 GPIO.output(ledRed, GPIO.LOW)
 GPIO.output(ledYlw, GPIO.LOW)
 GPIO.output(ledGrn, GPIO.LOW)
-
-
-def hello():
-    while True:
-        now = datetime.datetime.now()
-        timeString = now.strftime("%Y-%m-%d %H:%M")
-        templateDataTime = {
-            'time': timeString,
-            }
-        return render_template('index.html', **templateDataTime)
-
-@app.route("/")
-def no():
-    hello(templateDataTime)
-
+	
 @app.route("/")
 def index():
 	# Read Sensors Status
@@ -51,9 +36,7 @@ def index():
               'ledGrn'  : ledGrnSts,
         }
 	return render_template('index.html', **templateData)
-
-
-
+	
 @app.route("/<deviceName>/<action>")
 def action(deviceName, action):
 	if deviceName == 'ledRed':
@@ -78,15 +61,5 @@ def action(deviceName, action):
               'ledGrn'  : ledGrnSts,
 	}
 	return redirect(url_for('index'))
-
-@app.errorhandler(404)
-def internal_error(error):
-    return redirect(url_for('index'))
-
-config = {
-    "DEBUG": True  # run app in debug mode
-}
-
 if __name__ == "__main__":
-    app.config.from_mapping(config)
-    app.run(host='0.0.0.0', port=80, debug=True)
+   app.run(host='0.0.0.0', port=80, debug=True)
