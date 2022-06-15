@@ -69,7 +69,7 @@ def indeqx():
 	a =(archivo.read())
 	b=str(a[0:2])
 	print(b)
-	archivo = open("./teplates/archivocreado", "w")      #crea archivo
+	archivo = open("./teplates/archivocreado", "a" + "/n")      #crea archivo
 	archivo.write(b)              #esribe el archivo
 	archivo.close()                                 #cierra el archivo
 
