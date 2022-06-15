@@ -2,8 +2,6 @@ import RPi.GPIO as GPIO
 from flask import Flask, render_template, request, redirect, url_for
 import datetime
 
-from app import appfrom livereload import Server
-
 app = Flask(__name__)
 
 GPIO.setmode(GPIO.BCM)
@@ -84,6 +82,4 @@ def internal_error(error):
 
 
 if __name__ == "__main__":
-    server = Server(app.wsgi_app)    
-    server.serve()
     app.run(host='0.0.0.0', port=80, debug=True)
