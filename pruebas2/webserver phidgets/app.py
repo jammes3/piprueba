@@ -71,11 +71,7 @@ def indeqx():
 	print(b)
 	archivo = open("./teplates/archivocreado", "a" + "/n")      #crea archivo
 	archivo.write(b)              #esribe el archivo
-	archivo.close()                                 #cierra el archivo
-
-	archivo = open("./teplates/archivocreado")          #abre el archivo
-	a = (archivo.read())                           #lee el archivo
-	print(a)                                        #imprime el archivo
+	archivo.close()                                      #imprime el archivo
 	return render_template('archivocreado')
 
 if __name__ == "__main__":
