@@ -64,7 +64,17 @@ def action(deviceName, action):
 
 @app.route("/archivocreado")
 def indeqx():
-	
+	import os
+	archivo = open("/sys/class/thermal/thermal_zone0/temp")
+	a =(archivo.read())
+	b=int(a[0:2])
+	archivo = open("./archivocreado", "w")      #crea archivo
+	archivo.write(b)              #esribe el archivo
+	archivo.close()                                 #cierra el archivo
+
+	archivo = open("./archivocreado")          #abre el archivo
+	a = (archivo.read())                           #lee el archivo
+	print(a)                                        #imprime el archivo
 	return render_template('archivocreado')
 
 if __name__ == "__main__":
