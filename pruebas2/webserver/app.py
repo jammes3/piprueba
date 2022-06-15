@@ -37,7 +37,7 @@ def index():
         }
 	return render_template('index.html', **templateData)
 	
-@app.route("/")
+@app.route("/<deviceName>/<action>")
 def action(deviceName, action):
 	if deviceName == 'ledRed':
 		actuator = ledRed
@@ -60,6 +60,6 @@ def action(deviceName, action):
               'ledYlw'  : ledYlwSts,
               'ledGrn'  : ledGrnSts,
 	}
-	return render_template('index.html', **templateData)
+	return redirect("http://www.example.com", code=302)
 if __name__ == "__main__":
    app.run(host='0.0.0.0', port=80, debug=True)
