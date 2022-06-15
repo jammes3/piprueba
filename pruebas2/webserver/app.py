@@ -2,7 +2,7 @@
 	Raspberry Pi GPIO Status and Control
 '''
 import RPi.GPIO as GPIO
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 app = Flask(__name__)
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -60,6 +60,6 @@ def action(deviceName, action):
               'ledYlw'  : ledYlwSts,
               'ledGrn'  : ledGrnSts,
 	}
-	return redirect("/", code=302)
+	return render_template(index, **templateData)
 if __name__ == "__main__":
    app.run(host='0.0.0.0', port=80, debug=True)
