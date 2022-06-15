@@ -1,6 +1,3 @@
-'''
-	Raspberry Pi GPIO Status and Control
-'''
 import RPi.GPIO as GPIO
 from flask import Flask, render_template, request, redirect, url_for
 import datetime
