@@ -24,6 +24,18 @@ GPIO.output(ledRed, GPIO.LOW)
 GPIO.output(ledYlw, GPIO.LOW)
 GPIO.output(ledGrn, GPIO.LOW)
 	
+
+@app.route("/")
+def hello():
+   now = datetime.datetime.now()
+   timeString = now.strftime("%Y-%m-%d %H:%M")
+   templateData = {
+      'title' : 'HELLO!',
+      'time': timeString
+      }
+   return render_template('index.html', **templateData)
+   
+
 @app.route("/")
 def index():
 	# Read Sensors Status
@@ -38,15 +50,7 @@ def index():
         }
 	return render_template('index.html', **templateData)
 
-@app.route("/")
-def hello():
-   now = datetime.datetime.now()
-   timeString = now.strftime("%Y-%m-%d %H:%M")
-   templateData = {
-      'title' : 'HELLO!',
-      'time': timeString
-      }
-   return render_template('index.html', **templateData)
+
 
 @app.route("/<deviceName>/<action>")
 def action(deviceName, action):
