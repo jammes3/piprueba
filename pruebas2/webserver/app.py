@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 from flask import Flask, render_template, request, redirect, url_for
 import datetime
+from livereload import Server
 
 app = Flask(__name__)
 
@@ -82,5 +83,6 @@ def internal_error(error):
 
 
 if __name__ == "__main__":
-   app.config['TEMPLATES_AUTO_RELOAD'] = True
-   app.run(host='0.0.0.0', port=80, debug=True)
+    server = Server(app.wsgi_app)
+    server.serve(port=5555)
+    app.run(host='0.0.0.0', port=80, debug=True)
