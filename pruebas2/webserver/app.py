@@ -7,9 +7,9 @@ app = Flask(__name__)
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 #define actuators GPIOs
-ledRed = 22
+ledRed = 17
 ledYlw = 23
-ledGrn = 17
+ledGrn = 22
 #initialize GPIO status variables
 ledRedSts = 0
 ledYlwSts = 0
