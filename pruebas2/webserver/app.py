@@ -26,7 +26,7 @@ GPIO.output(ledGrn, GPIO.LOW)
 	
 
 
-@app.route()
+@app.route("")
 def hello():
     while True:
         now = datetime.datetime.now()
