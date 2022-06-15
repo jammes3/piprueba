@@ -80,6 +80,10 @@ def action(deviceName, action):
 def internal_error(error):
     return redirect(url_for('index'))
 
+config = {
+    "DEBUG": True  # run app in debug mode
+}
 
 if __name__ == "__main__":
+    app.config.from_mapping(config)
     app.run(host='0.0.0.0', port=80, debug=True)
