@@ -61,9 +61,6 @@ def action(deviceName, action):
               'ledGrn'  : ledGrnSts,
 	}
 	return redirect(url_for('index'))
-@app.route("/archivocreado")
-def xd():
-	return render_template('archivocreado', **templateData)
 
 if __name__ == "__main__":
    app.run(host='0.0.0.0', port=80, debug=True)
