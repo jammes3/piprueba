@@ -29,11 +29,10 @@ GPIO.output(ledGrn, GPIO.LOW)
 def hello():
    now = datetime.datetime.now()
    timeString = now.strftime("%Y-%m-%d %H:%M")
-   templateData = {
-      'title' : 'HELLO!',
-      'time': timeString
+   templateDataTime = {
+      'time': timeString,
       }
-   return render_template('index.html', **templateData)
+   return render_template('index.html', **templateDataTime)
 
 
 @app.route("/")
