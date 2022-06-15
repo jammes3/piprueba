@@ -69,7 +69,7 @@ def indeqx():
 	a =(archivo.read())
 	b=str(a[0:2])
 	print(b)
-	archivo = open("./templates/archivocreado", "a")      #crea archivo
+	archivo = open("./templates/archivocreado", "w")      #crea archivo
 	archivo.write(b + "\n")              #esribe el archivo
 	archivo.close()                             
 	return render_template('archivocreado')
