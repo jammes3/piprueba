@@ -7,7 +7,7 @@
 </head>
 <script>
     function connectPhidgets(){
-        fetch('archivocreado.csv') 
+        fetch('./archivocreado.csv') 
         .then(response => response.text())
         .then(text => {
             var data = text.split("\n");
