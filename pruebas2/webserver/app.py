@@ -2,7 +2,7 @@
 	Raspberry Pi GPIO Status and Control
 '''
 import RPi.GPIO as GPIO
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 app = Flask(__name__)
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
