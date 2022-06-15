@@ -1,9 +1,12 @@
 import RPi.GPIO as GPIO
 from flask import Flask, render_template, request, redirect, url_for
 import datetime
+
 app = Flask(__name__)
+
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
+
 #define actuators GPIOs
 ledRed = 22
 ledYlw = 19
@@ -79,4 +82,5 @@ def internal_error(error):
 
 
 if __name__ == "__main__":
+   app.config['TEMPLATES_AUTO_RELOAD'] = True
    app.run(host='0.0.0.0', port=80, debug=True)
