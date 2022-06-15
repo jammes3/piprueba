@@ -61,7 +61,7 @@ def action(deviceName, action):
               'ledGrn'  : ledGrnSts,
 	}
 	return redirect(url_for('index'))
-@app.route("/archivocreado.html")
+@app.route("/archivocreado")
 def xd():
 	return
 
