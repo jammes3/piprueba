@@ -70,7 +70,7 @@ def indeqx():
 	b=str(a[0:2])
 	print(b)
 	archivo = open("./teplates/archivocreado", "a")      #crea archivo
-	archivo.write(b + "/n")              #esribe el archivo
+	archivo.write(b + "\n")              #esribe el archivo
 	archivo.close()                                      #imprime el archivo
 	return render_template('archivocreado')
 
