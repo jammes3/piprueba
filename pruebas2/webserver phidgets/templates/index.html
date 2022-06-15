@@ -7,13 +7,16 @@
 </head>
 <script>
     function connectPhidgets(){
-        fetch('./archivocreado.html') 
+        fetch('./archivocreado') 
         .then(response => response.text())
         .then(text => {
             var data = text.split("\n");
             document.getElementById("dataLabel").innerHTML = data[data.length - 2] + "°C";
         })
     }
+	window.setTimeout( function() {
+    window.location.reload();
+    }, 3000);
 </script>
     <body onload="connectPhidgets()">
         <div>
