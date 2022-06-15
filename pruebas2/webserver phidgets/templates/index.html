@@ -1,0 +1,25 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Phidgets</title>
+</head>
+<script>
+    function connectPhidgets(){
+        fetch('data.csv') 
+        .then(response => response.text())
+        .then(text => {
+            var data = text.split("\n");
+            document.getElementById("dataLabel").innerHTML = data[data.length - 2] + "°C";
+        })
+    }
+</script>
+    <body onload="connectPhidgets()">
+        <div>
+            <h1>Phidget Data</h1>
+            <h2 id="dataLabel">?</h2>
+        </div>
+    </body>
+</html>
+  
