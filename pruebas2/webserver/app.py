@@ -29,6 +29,14 @@ GPIO.output(ledGrn, GPIO.LOW)
 
 
 @app.route("/")
+def hello():
+    while True:
+        now = datetime.datetime.now()
+        timeString = now.strftime("%Y-%m-%d %H:%M")
+        templateDataTime = {
+            'time': timeString,
+            }
+        return render_template('index.html', **templateDataTime)
 def index():
 	# Read Sensors Status
 	ledRedSts = GPIO.input(ledRed)
@@ -41,14 +49,6 @@ def index():
               'ledGrn'  : ledGrnSts,
         }
 	return render_template('index.html', **templateData)
-def hello():
-    while True:
-        now = datetime.datetime.now()
-        timeString = now.strftime("%Y-%m-%d %H:%M")
-        templateDataTime = {
-            'time': timeString,
-            }
-        return render_template('index.html', **templateDataTime)
 
 
 
