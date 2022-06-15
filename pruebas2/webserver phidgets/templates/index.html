@@ -3,18 +3,42 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css">
     <title>Phidgets</title>
 </head>
 <script>
     function connectPhidgets(){
-        fetch('./archivocreado') 
+        fetch('archivocreado') 
         .then(response => response.text())
         .then(text => {
             var data = text.split("\n");
-            document.getElementById("dataLabel").innerHTML = data[data.length - 2] + "°C";
+            document.getElementById("dataLabel").innerHTML = data[data.length - 1] + "°C";
+
+            var options = {
+				legend: true,
+				width: '75%'
+			};
+
+            var groups = new vis.DataSet();
+				groups.add({
+					id:0,
+					content: "Temperature (°C)"
+				});
+				var container = document.getElementById('dataGraph');
+				var wdata = [];
+				var i = 0
+				for (var d in data) {
+					wdata.push({ x: i, y: parseFloat(data[d]), group: 0});
+					i += 1;
+				}
+				var dataset = new vis.DataSet();
+				dataset.add(wdata);
+				graph = new vis.Graph2d(container, dataset, groups, options);
         })
     }
-	window.setTimeout( function() {
+
+    window.setTimeout( function() {
     window.location.reload();
     }, 3000);
 </script>
@@ -22,7 +46,8 @@
         <div>
             <h1>Phidget Data</h1>
             <h2 id="dataLabel">?</h2>
+            <div id="dataGraph">
         </div>
     </body>
-</html>
+</html>  
   
