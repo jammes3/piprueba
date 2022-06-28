@@ -20,7 +20,7 @@ try:
 
     print("Conectando PIR ...")
     time.sleep(1)
-    print "  Listo!!"
+    print("  Listo!!")
 
   # Bucle hasta que se precione CTRL-C
     while True :
