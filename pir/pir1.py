@@ -9,7 +9,7 @@ GPIO.setmode(GPIO.BCM)
 # Define el pin a utilizar
 GPIO_PIR = 7
 
-print "Prueba basica del modulo PIR (CTRL-C para salir)"
+print("Prueba basica del modulo PIR (CTRL-C para salir)")
 
 GPIO.setwarnings(False)
 
@@ -18,7 +18,7 @@ GPIO.setup(GPIO_PIR,GPIO.IN)
 
 try:
 
-    print "Conectando PIR ..."
+    print("Conectando PIR ...")
     time.sleep(1)
     print "  Listo!!"
 
