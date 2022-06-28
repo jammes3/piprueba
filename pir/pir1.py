@@ -31,6 +31,6 @@ try:
         print("No hay presencia")
         time.sleep(0.5)
 except KeyboardInterrupt:
-        print "  Saliendo"
+        print("  Saliendo")
   # Restablece la configuracion de GPIO
 GPIO.cleanup()
